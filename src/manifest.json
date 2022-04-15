@@ -1,0 +1,29 @@
+{
+  "name": "Katt for N予備校",
+  "version": "1.0",
+  "manifest_version": 3,
+  "action": {
+    "default_popup": "popup/index.html",
+      "default_icon": {
+        "16": "assets/logo.png",
+        "48": "assets/logo.png",
+        "128": "assets/logo.png"
+      },
+      "default_title": "Vue Popup"
+  },
+  "content_scripts":[
+    {
+      "matches":[
+        "https://www.nnn.ed.nico/courses/*/chapters/*"
+      ],
+      "js":[
+        "contentScripts/chapterPage.ts"
+      ]
+    }
+  ],
+  "icons": {
+    "16": "assets/logo.png",
+    "48": "assets/logo.png",
+    "128": "assets/logo.png"
+  }
+}
