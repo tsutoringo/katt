@@ -3,6 +3,7 @@ import { Chapters } from '../utils/getChapters';
 
 export const useNYobikoProvider = () => {
   const chapters = ref<Chapters>();
+  const error = ref<boolean>(true);
   const loading = ref<boolean>(true);
 
   chrome.tabs.query({active: true, currentWindow: true}, ([tab]) => {
@@ -11,15 +12,17 @@ export const useNYobikoProvider = () => {
       chrome.tabs.sendMessage(tab.id, {method: 'getDetail'}, (res: Chapters | null) => {
         if (res) chapters.value = res;
       });
-    } catch (e) { // eslint-disable-line
-      
+    } catch (e) {
+      error.value = false;
     } finally {
       loading.value = false;
     }
   });
 
   return {
-
+    chapters,
+    error,
+    loading
   }
 }
 

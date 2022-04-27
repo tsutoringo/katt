@@ -15,8 +15,6 @@ export const vrRanks = {
   RICH: 'rich'
 } as const;
 
-export type ResourceTypes = typeof resourceTypes[keyof typeof resourceTypes];
-export type MaterialTypes = typeof materialTypes[keyof typeof materialTypes];
 export type VrRanks = typeof vrRanks[keyof typeof vrRanks];
 
 export interface Chapters {
@@ -44,8 +42,8 @@ export interface Progress {
   total_count: number;
   passed_count: number;
 }
+
 export interface SectionBase {
-  resource_type: ResourceTypes;
   id: number;
   title: string;
   passed: boolean;
@@ -56,39 +54,41 @@ export interface SectionBase {
 }
 
 export interface MovieSectionBase extends SectionBase {
-  resource_type: typeof resourceTypes.MOVIE;
+  resource_type: 'movie';
   textbook_info: string;
   length: number;
   playback_position: number;
 }
 
 export interface SupplementMovieSection extends MovieSectionBase {
-  material_type: typeof materialTypes.SUPPLEMENT;
+  material_type: 'supplement';
   vr_rank: VrRanks;
   vr_length: number;
 }
 
 export interface MovieSection extends MovieSectionBase {
-  material_type: typeof materialTypes.MAIN;
+  material_type: 'main';
 }
 
 export interface EvaluationSection extends SectionBase {
-  resource_type: typeof resourceTypes.EVALUATION_TEST | typeof resourceTypes.EVALUATION_REPORT;
-  material_type: typeof materialTypes.MAIN;
+  resource_type: 'evaluation_test' | 'evaluation_report';
+  material_type: 'main';
   passed: boolean;
   total_question: number;
   done: boolean;
 }
 
 export interface EssaySection extends SectionBase {
-  resource_type: typeof resourceTypes.ESSAY_TEST | typeof resourceTypes.ESSAY_REPORT;
-  material_type: typeof materialTypes.MAIN;
+  resource_type: 'essay_test' | 'essay_report';
+  material_type: 'main';
   passed: boolean;
   total_question: number;
   done: boolean;
 }
 
 export type SectionsEntity = MovieSection | SupplementMovieSection | EvaluationSection | EssaySection;
+export type ResourceTypes = SectionsEntity['resource_type'];
+export type MaterialTypes = SectionsEntity['material_type'];
 
 export interface Permissions {
   vr_use?: VrUse | null;
