@@ -10,7 +10,8 @@
   "dependencies": {
     "@tsutoringo/vue-utils": "^0.2.1",
     "sass": "^1.50.1",
-    "vue": "^3.2.25"
+    "vue": "^3.2.25",
+    "vue-router": "^4.0.14"
   },
   "devDependencies": {
     "@types/chrome": "^0.0.181",
