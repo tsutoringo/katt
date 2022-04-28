@@ -28,7 +28,7 @@ const { chapters, loading, error } = inject(NYobikoKey) as NYobikoProviderStore;
 const ls = inject(lsUtil.localStorageKey) as lsUtil.LocalStorageStore;
 const ignoreSupplement = ls.getAsBoolean('ignore_supplement', true);
 
-const sections = computed<SectionsEntity[]>(() => 
+const sections = computed<SectionsEntity[]>(() =>
   !chapters.value
   ? [] // Chapterがない場合からの配列を返す
   : ignoreSupplement.value // サプリメント教材を無視するか否か

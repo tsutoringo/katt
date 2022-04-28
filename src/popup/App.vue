@@ -24,9 +24,11 @@ const shortHash = __GIT_SHORT_HASH__;
     </div>
     <footer>
       <span>
-        <a href="https://github.com/tsutoringo/katt" target="_blank">tsutoringo/katt</a> @ <a :href="`https://github.com/tsutoringo/katt/commit/${hash}`" target="_blank">{{shortHash}}</a> # <a target="_blank" :href="`https://github.com/tsutoringo/katt/tree/${branch}`">{{ branch }}</a>
+        <a href="https://github.com/tsutoringo/katt" target="_blank">tsutoringo/katt</a>
+        @ <a :href="`https://github.com/tsutoringo/katt/commit/${hash}`" target="_blank">{{ shortHash }}</a>
+        # <a target="_blank" :href="`https://github.com/tsutoringo/katt/tree/${branch}`">{{ branch }}</a>
       </span>
-      <a href="https://github.com/tsutoringo/katt" target="_blank">開発者に寄付をする</a>
+      <!-- <a href="https://github.com/tsutoringo/katt" target="_blank">開発者に寄付をする</a> -->
     </footer>
   </div>
 </template>
