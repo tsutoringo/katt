@@ -3,18 +3,23 @@
   "private": true,
   "version": "0.0.0",
   "scripts": {
-    "dev": "vite",
-    "build": "vue-tsc --noEmit && vite build",
+    "dev": "vite build --watch",
+    "build": "vite build",
     "preview": "vite preview"
   },
   "dependencies": {
-    "vue": "^3.2.25"
+    "@tsutoringo/vue-utils": "^0.2.1",
+    "sass": "^1.50.1",
+    "vue": "^3.2.25",
+    "vue-router": "^4.0.14"
   },
   "devDependencies": {
+    "@types/chrome": "^0.0.181",
     "@vitejs/plugin-vue": "^2.3.0",
+    "git-revision": "^0.0.2",
     "typescript": "^4.5.4",
     "vite": "^2.9.0",
-    "vite-plugin-chrome-extension": "^0.0.7",
+    "vite-plugin-web-extension": "^1.3.1",
     "vue-tsc": "^0.29.8"
   }
 }
